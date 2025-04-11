@@ -32,7 +32,7 @@ router.get('/api/users/:userId', basicAuth.isAuthenticated, UserQuery.getUserByI
 router.post('/api/users', basicAuth.isAuthenticated, UserCommand.createUsers);
 router.post('/api/users/login', basicAuth.isAuthenticated, UserCommand.loginUsers);
 
-router.put('/api/users/:userId', jwtAuth.authenticateJWT, UserCommand.updateUsers);
-router.delete('/api/users/:userId', jwtAuth.authenticateJWT, UserCommand.deleteUsers);
+// router.put('/api/users/:userId', jwtAuth.authenticateJWT, UserCommand.updateUsers);
+// router.delete('/api/users/:userId', jwtAuth.authenticateJWT, UserCommand.deleteUsers);
 
 module.exports = router;
