@@ -18,15 +18,15 @@ const { Worker } = require('bullmq');
 // Initialize basic authentication.
 router.use(basicAuth.init());
 
-// const limiter = rateLimit({
-// 	windowMs: 1,
-// 	// windowMs: 15 * 60 * 1000,
-// 	limit: 3,
-// 	standardHeaders: 'draft-8',
-// 	legacyHeaders: false
-// })
+const limiter = rateLimit({
+	windowMs: 1,
+	// windowMs: 15 * 60 * 1000,
+	limit: 3,
+	standardHeaders: 'draft-8',
+	legacyHeaders: false
+})
 
-// router.use(limiter)
+router.use(limiter)
 
 /**
  * @modules
