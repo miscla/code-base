@@ -66,7 +66,7 @@ npm run dev
 # PORT
 PORT=8080
 
-MONGO_URI=mongodb+srv://miscla:0856Dian@test-db-sazanka.global.mongocluster.cosmos.azure.com/Assessment
+MONGO_URI=*Read file readme.txt*
 
 # BASIC AUTHENTICATION
 BASIC_AUTH_USERNAME=username
@@ -77,7 +77,7 @@ PUBLIC_KEY=public.pem
 PRIVATE_KEY=private.pem
 SECRET_KEY=test
 
-REDIS_CLIENT_HOST=redis-12723.c53.west-us.azure.redns.redis-cloud.com
+REDIS_CLIENT_HOST=*Read file readme.txt*
 REDIS_CLIENT_PORT=12723
 REDIS_CLIENT_PASSWORD=0856Dian
 ```
