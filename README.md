@@ -81,3 +81,10 @@ REDIS_CLIENT_HOST=redis-12723.c53.west-us.azure.redns.redis-cloud.com
 REDIS_CLIENT_PORT=12723
 REDIS_CLIENT_PASSWORD=0856Dian
 ```
+
+## Cloud Deployment
+
+Service
+- Azure Web App
+- Azure Cosmos DB for MongoDB
+- Redis Cloud
