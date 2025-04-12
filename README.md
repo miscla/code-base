@@ -84,6 +84,9 @@ REDIS_CLIENT_PASSWORD=0856Dian
 
 ## Cloud Deployment
 
+Base URL for testing in Postman
+code-base-hvanc8ewbhdbbbgz.canadacentral-01.azurewebsites.net
+
 Service
 - Azure Web App
 - Azure Cosmos DB for MongoDB
