@@ -46,7 +46,7 @@ class UserCommand {
     const user = await User.create({
       ...payload,
       userId: uuid(),
-      email: payload.email.toLowerCase(),
+      email: payload.email,
       password: password,
       role: payload.role
     });
@@ -81,53 +81,6 @@ class UserCommand {
       // Handle validation error
       return response.error(res, 'Validation error!', CODE.FORBIDDEN);
     }
-  }
-
-  static async updateUsers(req, res) {
-    const cx = 'users-updateUsers';
-
-    const payload = { ...req.params, ...req.body };
-    const findByUserId = await User.findOne({ userId: payload.userId });
-
-    if (!findByUserId) {
-      logger.error(cx, 'User not found.');
-      return response.error(res, 'User not found!', CODE.NOT_FOUND);
-    }
-
-    const data = {
-      name: payload.name,
-      email: payload.email,
-      address: payload.address
-    };
-
-    const user = await User.updateOne({ userId: payload.userId }, data);
-    if (!user) {
-      logger.error(cx, 'Failed to update user data.');
-      return response.error(res, 'Failed to update user data!', CODE.INTERNAL_ERROR);
-    }
-
-    return response.data(res, 'User updated successfully!', user);
-  }
-
-  static async deleteUsers(req, res) {
-    const cx = 'users-deleteUsers';
-    const payload = { ...req.params };
-
-    const findByUserId = await User.findOne({ userId: payload.userId });
-
-    if (!findByUserId) {
-      logger.error(cx, 'User not found.');
-      return response.error(res, 'User not found!', CODE.NOT_FOUND);
-    }
-
-    const user = await User.deleteOne({ userId: payload.userId });
-    if (!user) {
-      logger.error(cx, 'Failed to delete user.');
-      return response.error(res, 'Failed to delete user!', CODE.INTERNAL_ERROR);
-    }
-
-    return response.data(res, 'User deleted successfully!', user);
-
   }
 }
 

@@ -9,6 +9,8 @@ const config = require('./helpers/config/config');
 const { CODE } = require('./helpers/lib/httpCode');
 const response = require('./helpers/utils/response');
 
+const redis = require('./database/redis/connection');
+
 const app = express();
 const PORT = config.get('/port');
 const server = http.createServer(app);
@@ -32,6 +34,7 @@ server.listen(PORT, async (err) => {
     return process.exit(1);
   }
 
+  redis.init();
   await connectDB(config.get('/mongo_uri'));
   logger.info(cx, `Connected to port:${PORT}`);
 });

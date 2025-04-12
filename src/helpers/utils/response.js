@@ -36,6 +36,15 @@ class Response {
       code: code,
     });
   }
+  static pagination(res, message, data, metaData) {
+    return res.status(CODE.SUCCESS).json({
+      success: true,
+      data: data,
+      metaData: metaData,
+      message: message,
+      code: CODE.SUCCESS,
+    });
+  }
 }
 
 module.exports = Response;

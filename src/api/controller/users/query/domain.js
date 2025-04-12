@@ -27,19 +27,6 @@ class UserQuery {
 
     return response.data(res, 'Users successfully fetched', users);
   }
-
-  static async getUserById(req, res) {
-    const cx = 'users-getUserById';
-    const payload = { ...req.params };
-
-    const user = await User.findOne({ userId: payload.userId });
-    if (!user) {
-      logger.error(cx, 'User data not found.');
-      return response.error(res, 'User data not found!', CODE.NOT_FOUND);
-    }
-
-    return response.data(res, 'User successfully fetched', user);
-  }
 }
 
 module.exports = UserQuery;

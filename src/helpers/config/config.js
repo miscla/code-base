@@ -12,7 +12,12 @@ const store = new confidence.Store({
       username: process.env.BASIC_AUTH_USERNAME,
       password: process.env.BASIC_AUTH_PASSWORD
     }
-  ]
+  ],
+  redis: {
+    redisHost: process.env.REDIS_CLIENT_HOST,
+    redisPort: process.env.REDIS_CLIENT_PORT,
+    redisPassword: process.env.REDIS_CLIENT_PASSWORD
+  },
 });
 
 exports.get = key => store.get(key);

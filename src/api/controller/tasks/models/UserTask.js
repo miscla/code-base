@@ -1,16 +1,12 @@
 const { v4: uuid } = require('uuid');
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const userTaskSchema = new mongoose.Schema({
   userId: {
-    type: String,
-    default: uuid()
-  },
-  name: {
     type: String,
     required: true
   },
-  address: {
+  name: {
     type: String,
     required: true
   },
@@ -18,14 +14,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  password: {
+  taskId: {
     type: String,
     required: true
   },
-  role: {
+  createdAt: {
     type: String,
     required: true
   },
 }, { versionKey: false });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('UserTask', userTaskSchema, 'user_tasks');
